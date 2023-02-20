@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NotesApp.MainPage"
+             Title="Your Notes"
+             >
+
+    <StackLayout>
+        <StackLayout>
+            <Frame BackgroundColor="MediumPurple" Padding="24" CornerRadius="0">
+                <StackLayout>
+                    <Label Text="YOUR NOTES" HorizontalTextAlignment="Center" TextColor="White" FontSize="36" FontAttributes="Bold"/>
+                    <Label FontSize="16" HorizontalTextAlignment="Center" TextColor="White">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="Today is "/>
+                                    <Span x:Name="today"/>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+        
+        <ScrollView>
+            <StackLayout x:Name="body">
+            </StackLayout>
+        </ScrollView>
+
+        <StackLayout VerticalOptions="End">
+            <Button x:Name="addNote" Margin="20,5" VerticalOptions="Center" Text="Add new note" BackgroundColor="MediumPurple" TextColor="white" Clicked="addNotePopup_Clicked"/>
+        </StackLayout>
+    </StackLayout>
+    
+</ContentPage>

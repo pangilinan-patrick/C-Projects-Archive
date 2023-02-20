@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="sa2_c3a_pangilinan.Views.MoneyConverter"
+             Title="Money Converter">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="15">
+                <?When this module is selected, the app will provide a conversion functionality from several currencies to Philippine peso.
+                The currencies will include US dollar, Japanese Yen, KSA riyal, UAE dirham and UK pound.
+                ?>
+                <Image Source="coin.png" WidthRequest="40"/>
+                <Label Text="PHP to Other Currencies" FontSize="Title" Padding="30,0,30,0" HorizontalOptions="Center" TextColor="gray"/>
+                <Label Text="These are money exchange rates based from 10 June 2022" FontSize="16" Padding="30,0,30,0" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="gray"/>
+                
+                <!-- currency choice section -->
+                <Label Text="Choose your currency" FontSize="Large"  Padding="30,24,30,0"/>
+
+                <StackLayout RadioButtonGroup.GroupName="Currencies">
+                    <RadioButton x:Name="Dollars" Value="USD" Content="US Dollars" Margin="30,0,0,0" CheckedChanged="CurrencyOptions" IsChecked="true"/>
+                    <RadioButton x:Name="JYen" Value="JPY" Content="Japanese Yen" Margin="30,0,0,0" CheckedChanged="CurrencyOptions"/>
+                    <RadioButton x:Name="KSARiyal" Value="SAR" Content="KSA Riyal" Margin="30,0,0,0" CheckedChanged="CurrencyOptions"/>
+                    <RadioButton x:Name="Dirham" Value="AED" Content="UAE Dirham" Margin="30,0,0,0" CheckedChanged="CurrencyOptions"/>
+                    <RadioButton x:Name="Pound" Value="GBP" Content="UK Pound" Margin="30,0,0,0" CheckedChanged="CurrencyOptions"/>
+                </StackLayout>
+                <Label x:Name="label" Margin="30,0,0,10" />
+
+                <!-- amount entry section -->
+                <Label Text="Enter Pesos:" FontSize="Medium" Padding="30,0,30,0"/>
+                <Entry x:Name="enterPHP" Keyboard="Numeric" Margin="30,0,30,0" ClearButtonVisibility="WhileEditing" Focused="enterPHP_Focused" Completed="enterPHP_Completed"/>
+                <Label x:Name="exchangeRate" FontSize="Medium" Padding="30,0,30,0"/>
+                <Entry x:Name="enterCurrency" Keyboard="Numeric" Margin="30,0,30,0" ClearButtonVisibility="WhileEditing" Focused="enterCurrency_Focused" Completed="enterCurrency_Completed"/>
+
+                <!-- reset and calculate buttons layout-->
+                <Grid Margin="30,10,30,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Reset" Command="{Binding LocalCommand}" Grid.Row="0" Grid.Column="0" BackgroundColor="YellowGreen" BorderWidth="5"/>
+                    <Button Text="Calculate" Command="{Binding CalculateCommand}" Grid.Row="0" Grid.Column="1" BackgroundColor="LightSeaGreen" BorderWidth="5"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

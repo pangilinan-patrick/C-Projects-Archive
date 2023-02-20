@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="sa2_c3a_pangilinan.Views.HeightConverter"
+             Title="Height Converter">
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <?When this module is selected, the app will provide a simple conversion of centimeters to feet and vice versa.?>
+            <Image Source="height.png" WidthRequest="40"/>
+            <Label Text="CM to Ft and Vice Versa" FontSize="Title" Padding="30,0,30,0" HorizontalOptions="Center"/>
+            <Label Text="A compact centimeters to feet converter" FontSize="16" Padding="30,0,30,0" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+
+            <StackLayout Padding="0,30,0,0">
+                <Label Text="Convert" FontAttributes="Bold" FontSize="Large" Padding="30,24,30,15" />
+
+                <!-- cm or ft entry -->
+                <Label Text="Enter Centimeters:" FontSize="Medium" Padding="30,0,30,0"/>
+                <Entry x:Name="enterCM" Keyboard="Numeric" Margin="30,0,30,0" ClearButtonVisibility="WhileEditing" Focused="enterCM_Focused" Completed="enterCM_Completed"/>
+                <Label Text="Enter Feet:" FontSize="Medium" Padding="30,0,30,0"/>
+                <Entry x:Name="enterFT" Keyboard="Numeric" Margin="30,0,30,0" ClearButtonVisibility="WhileEditing" Focused="enterFT_Focused" Completed="enterFT_Completed"/>
+
+                <!-- reset or calculate buttons -->
+                <Grid Margin="30,10,30,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Reset" Command="{Binding LocalCommand}" Grid.Row="0" Grid.Column="0" BackgroundColor="YellowGreen" BorderWidth="5"/>
+                    <Button Text="Calculate" Command="{Binding CalculateCommand}" Grid.Row="0" Grid.Column="1" BackgroundColor="LightSeaGreen" BorderWidth="5"/>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
